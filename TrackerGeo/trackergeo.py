@@ -55,6 +55,13 @@ banner = '''
 
 USER_AGENT_LIST = ["Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31"]
 
+def check_path():
+    check_php = os.path.exists('/usr/bin/php')
+    if check_php ==True:
+        pass
+    else:
+        sys.exit("\033[31m[!] Php Not Found !")
+
 def platform_required():
     if 'Linux' not in platform.platform():
         sys.exit('[*] This is Only For Linux Platform !')
@@ -145,6 +152,7 @@ def check_logs():
 
 if __name__ == '__main__':
     platform_required()
+    check_path()
     print(banner)
     check_requirements_path()
     try:
